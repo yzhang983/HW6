@@ -1,0 +1,20 @@
+TITLE:
+m1 growth model fixed time scores - hw 6
+DATA:
+FILE = "/Users/chloezhang/Desktop/HW 6/mplus_files/hw6.dat";
+ 
+VARIABLE:
+NAMES = caseid casenum cohort schoolid rural gender sci_07 sci_08 sci_09 sci_10
+     sci_11 sci_12 mothed fathed; 
+ MISSING=.;
+ usevar =
+    sci_07-sci_12; 
+ANALYSIS:
+estimator = ML
+MODEL:
+i s | sci_07@0 sci_08@1 sci_09@2 sci_10@3 sci_11@4 sci_12@5; 
+OUTPUT:
+sampstat standardized;
+PLOT:
+type=plot3;
+          series = sci_07-sci_12(*)
